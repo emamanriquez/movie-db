@@ -16,7 +16,7 @@ const Card = ({ movie,onClick }) => {
         alt={movie.title}
         className={styles.movieImg}
       />
-      <h4>{movie.title}</h4>
+      <h4 className={styles.h4movies}>{movie.title}</h4>
 
     </div>
   );

@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../../redux/actions";
 import Card from "../Card/Card";
 import { Link } from "react-router-dom";
+import Carrusel from "../carrusel/carrusel";
+
+
 const Home = () => {
   const movies = useSelector((state) => state.movies);
   const searchKey = useSelector((state) => state.searchKey);
@@ -15,15 +18,17 @@ const Home = () => {
 
   return (
     <>
-      <div className={styles.gridContainer}>
+    <Carrusel />
+    <div className={styles.gridContainer}>
         {movies?.map((movie) => (
           <Link to={`/detail/${movie.id}`} key={movie.id}>
             <Card key={movie.id} movie={movie} />
           </Link>
         ))}
       </div>
-    </>
-  );
+    
+        </>
+  )
 };
 
 export default Home;

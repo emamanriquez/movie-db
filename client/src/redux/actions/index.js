@@ -9,6 +9,29 @@ export const SET_SEARCH_KEY = "SET_SEARCH_KEY";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 export const LOGOUT = "LOGOUT";
+export const REGISTER = "REGISTER";
+
+
+export const register = (name, email, password) => {
+  try {
+    return async function (dispatch) {
+      const response = await axios.post("http://localhost:4005/api/auth/register", {
+        name,
+        email,
+        password,
+      });
+      
+return dispatch({
+          type: REGISTER,
+          payload: response.data,
+        });
+        
+      }
+    } catch(err) {
+      console.log(err);
+
+    }
+    };
 
 export const logout = () => {
   try {
